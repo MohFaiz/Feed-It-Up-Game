@@ -269,7 +269,7 @@ void Demo::PredatorSpawn(int index, float deltaTime) {
 			predatorVelocity[index] = 0.3f + 0.005f * score - 0.01f * (rand() % 20);
 		}
 	}
-	if (IsCollided(player.xpos + 0.25f, player.ypos + 0.25f, frame_width - 0.5f, frame_height - 0.5f, predatorPosX[index] + 0.25f, predatorPosY[index] + 0.25f, frame_width3 - 0.5f, frame_height3 - 0.5f)) {
+	if (IsCollided(player.xpos, player.ypos, frame_width, frame_height, predatorPosX[index], predatorPosY[index], frame_width3, frame_height3)) {
 		if (gameTime <= 3000.0f) {
 			predatorLeftToRight[index] = rand() % 2;
 			if (predatorLeftToRight[index] < 1) {
@@ -999,7 +999,7 @@ void Demo::DrawScore1() {
 int main(int argc, char** argv) {
 
 	Engine::Game &game = Demo();
-	game.Start("Game", 1280, 800, false, WindowFlag::WINDOWED, 60, 1);
+	game.Start("Game", 900, 600, false, WindowFlag::WINDOWED, 60, 1);
 
 	return 0;
 }
